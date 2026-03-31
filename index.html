@@ -1,278 +1,198 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Devira - Cursos e Megas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Ilimitado - Vodafone Moçambique</title>
+    <style>
+        :root {
+            --primary: #e60000; /* Vermelho Vodafone */
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --success: #28a745;
+        }
 
-<!-- AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8658620615460091"
-     crossorigin="anonymous"></script>
-<meta name="google-adsense-account" content="ca-pub-8658620615460091">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark);
+            color: white;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-<style>
-body { margin:0; font-family:Arial, sans-serif; background:#0f172a; color:#fff; }
-header { background:#020617; padding:20px; text-align:center; font-size:24px; color:#22c55e; }
-.container { max-width:800px; margin:auto; padding:20px; }
-.button { display:block; width:100%; padding:15px; margin:10px 0; border:none; border-radius:12px; font-size:18px; cursor:pointer; text-align:center; }
-.green { background:#22c55e; color:#000; }
-.gray { background:#555; color:#fff; }
-.video-box { margin:20px 0; border-radius:12px; overflow:hidden; display:none; }
-.video-box iframe { width:100%; height:400px; border:none; }
-.lesson { background:#1e293b; padding:15px; border-radius:12px; margin:10px 0; cursor:pointer; }
-.lesson:hover { background:#334155; }
-.buttons-bottom { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
-.buttons-bottom button { flex:1; }
-.hidden { display:none; }
-.msg { background:#fff; color:#000; padding:12px; margin-bottom:10px; border-radius:12px; }
-input, textarea, select { width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid #ccc; }
-.groupbtn { background:#128C7E; color:#fff; }
-.note { font-size:14px; color:#ccc; margin-top:10px; }
-.ads-top { margin:10px 0; text-align:center; }
-</style>
+        .container {
+            background: #252525;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .hidden { display: none; }
+
+        h1 { color: var(--primary); margin-bottom: 10px; }
+        p { color: #ccc; line-height: 1.6; }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background: #333;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        button:hover { background: #ff1a1a; transform: translateY(-2px); }
+
+        .payment-box {
+            background: #333;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .copy-btn {
+            background: #555;
+            padding: 5px 10px;
+            font-size: 12px;
+            width: auto;
+            margin-left: 10px;
+        }
+
+        .status-msg {
+            color: var(--success);
+            font-weight: bold;
+            margin: 10px 0;
+            min-height: 20px;
+        }
+
+        pre {
+            background: #000;
+            padding: 15px;
+            text-align: left;
+            border-radius: 5px;
+            overflow-x: auto;
+            color: #0f0;
+            font-size: 13px;
+        }
+    </style>
 </head>
 <body>
 
-<header>🎓 Devira - Aprenda Todos os Dias</head>
-<div class="ads-top">
-  <ins class="adsbygoogle"
-       style="display:block; background:#ccc; text-align:center; padding:20px;"
-       data-ad-client="ca-pub-8658620615460091"
-       data-ad-slot="3264283813" 
-       data-ad-format="auto"
-       data-full-width-responsive="true">
-       
-  </ins>
-</div>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-<div class="container" id="inicio">
-  <h2>👋 Bem-vindo ao Devira!</h2>
-  <p>Serviço de assistência, cursos e conteúdos diários. Novos vídeos e aulas são adicionados todos os dias para você aprender sobre:</p>
-  <ul>
-    <li>Internet grátis (WhatsApp, Facebook, VPNs)</li>
-    <li>Afiliamentos e plataformas de ganhos online</li>
-    <li>Programação de sites e apps</li>
-    <li>Como monetizar anúncios e muito mais</li>
-  </ul>
-  <button class="button green" onclick="abrirSecao('aulas')">Queres começar grátis?</button>
-  <button class="button green" onclick="abrirSecao('megas')">Comprar Megas</button>
-</div>
-
-<!-- Aulas -->
-<div class="container hidden" id="aulas">
-  <h2>📚 Aulas Disponíveis</h2>
-
-  <div class="lesson" onclick="abrirAula(0)">Aula 1: Internet grátis para WhatsApp/Facebook</div>
-  <div class="video-box" id="video0">
-    <iframe src="https://www.youtube.com/embed/wqU3Dgto2QM" allowfullscreen></iframe>
-    <div class="buttons-bottom">
-      <button class="green" onclick="abrirWhatsApp()">Entrar no WhatsApp</button>
-      <button class="green" onclick="cursoRapido()">Curso Rápido</button>
-      <button class="gray" onclick="abrirSecao('aulas')">VOLTAR</button>
+<div class="container">
+    <div id="step1">
+        <h1>🚀 VPN Ilimitado</h1>
+        <p>Acesse a internet sem limites na rede Vodafone Moçambique. Alta velocidade, estabilidade e segurança total.</p>
+        <button onclick="nextStep(2)">Adquirir VPN Agora</button>
     </div>
-  </div>
 
-  <div class="lesson" onclick="abrirAula(1)">Aula 2: Afiliamentos e como ganhar dinheiro</div>
-  <div class="video-box" id="video1">
-    <iframe src="https://www.youtube.com/embed/X_xjAW5Q4yw" allowfullscreen></iframe>
-    <div class="buttons-bottom">
-      <button class="green" onclick="abrirWhatsApp()">Entrar no WhatsApp</button>
-      <button class="green" onclick="cursoRapido()">Curso Rápido</button>
-      <button class="gray" onclick="abrirSecao('aulas')">VOLTAR</button>
+    <div id="step2" class="hidden">
+        <h2>Registo</h2>
+        <p>Preencha os dados para criar sua conta.</p>
+        <input type="text" id="nome" placeholder="Nome Completo">
+        <input type="email" id="email" placeholder="Seu melhor E-mail">
+        <input type="password" id="pin" placeholder="Crie um PIN (4 dígitos)">
+        <button onclick="nextStep(3)">Continuar para Pagamento</button>
     </div>
-  </div>
 
-  <div class="lesson" onclick="abrirAula(2)">Aula 3: Monetização de anúncios</div>
-  <div class="video-box" id="video2">
-    <iframe src="https://www.youtube.com/embed/X_xjAW5Q4yw" allowfullscreen></iframe>
-    <div class="buttons-bottom">
-      <button class="green" onclick="abrirWhatsApp()">Entrar no WhatsApp</button>
-      <button class="green" onclick="cursoRapido()">Curso Rápido</button>
-      <button class="gray" onclick="abrirSecao('aulas')">VOLTAR</button>
+    <div id="step3" class="hidden">
+        <h2>Pagamento 💳</h2>
+        <p>Realize o pagamento para liberar o acesso:</p>
+        
+        <div class="payment-box">
+            <strong>M-Pesa:</strong> 84 715 4707 <br>
+            <small>Titular: Cramenia</small>
+        </div>
+
+        <div class="payment-box">
+            <strong>e-Mola:</strong> 876 353 251 <br>
+            <small>Titular: Rosa</small>
+        </div>
+
+        <p><small>Após pagar, digite CONFIRMADO abaixo para validar.</small></p>
+        
+        <input type="text" id="confirmInput" placeholder="Digite CONFIRMADO">
+        <div id="statusMsg" class="status-msg"></div>
+        
+        <button id="btnEntrar" onclick="handleConfirmation()">VERIFICAR PAGAMENTO</button>
     </div>
-  </div>
 
-  <div class="lesson" onclick="abrirAula(3)">Aula 4: Programação de sites e apps</div>
-  <div class="video-box" id="video3">
-    <iframe src="https://www.youtube.com/embed/X_xjAW5Q4yw" allowfullscreen></iframe>
-    <div class="buttons-bottom">
-      <button class="green" onclick="abrirWhatsApp()">Entrar no WhatsApp</button>
-      <button class="green" onclick="cursoRapido()">Curso Rápido</button>
-      <button class="gray" onclick="abrirSecao('aulas')">VOLTAR</button>
+    <div id="step4" class="hidden">
+        <h2>✅ Acesso Liberado!</h2>
+        <p>Aqui está o seu ficheiro de configuração VPN:</p>
+        <pre>
+# Script de Conexão VPN Python
+import vpn_engine
+
+def connect():
+    auth = "vodafone_moz"
+    key = "UNLIMITED_2024"
+    print("Conectando ao túnel ilimitado...")
+    vpn_engine.start(auth, key)
+
+connect()
+        </pre>
+        <button onclick="alert('Download iniciado!')">Baixar Documento Python</button>
     </div>
-  </div>
-
-  <div class="lesson" onclick="abrirAula(4)">Aula 5: Outras plataformas e técnicas de monetização</div>
-  <div class="video-box" id="video4">
-    <iframe src="https://www.youtube.com/embed/X_xjAW5Q4yw" allowfullscreen></iframe>
-    <div class="buttons-bottom">
-      <button class="green" onclick="abrirWhatsApp()">Entrar no WhatsApp</button>
-      <button class="green" onclick="cursoRapido()">Curso Rápido</button>
-      <button class="gray" onclick="abrirSecao('aulas')">VOLTAR</button>
-    </div>
-  </div>
-
-  <div class="note">📌 Cada curso dura no máximo 18 horas. Atualizações de aulas todos os dias.</div>
-  <button class="gray" onclick="abrirSecao('inicio')">VOLTAR</button>
-</div> 
-<!-- Megas -->
-<div class="container hidden" id="megas">
-  <div class="msg">
-    <b>📊 Vodacom Moçambique — PACOTES ATUALIZADOS</b><br><br>
-    ━━━━━━━━━━━━━━━<br>
-    <b>📅 DIÁRIO (24H)</b><br>
-    55MT ➜ 3GB<br>
-    110MT ➜ 5GB<br>
-    220MT ➜ 10GB<br>
-    450MT ➜ 20GB<br>
-    700MT ➜ 30GB<br>
-    930MT ➜ 40GB<br><br>
-    ━━━━━━━━━━━━━━━<br>
-    <b>📆 SEMANAL (7 DIAS)</b><br>
-    140MT ➜ 5GB<br>
-    250MT ➜ 10GB<br>
-    480MT ➜ 20GB<br>
-    740MT ➜ 30GB<br><br>
-    ━━━━━━━━━━━━━━━<br>
-    <b>🗓️ MENSAL (30 DIAS)</b><br>
-    110MT ➜ 2.8GB<br>
-    180MT ➜ 5.2GB<br>
-    295MT ➜ 10.2GB<br>
-    480MT ➜ 20.2GB<br>
-    1035MT ➜ 50.2GB<br>
-    2010MT ➜ 100GB<br><br>
-    Escolha um pacote e adicione o seu número:
-  </div>
-
-  <div class="msg">
-    Tipo de pacote:
-    <select id="tipo">
-      <option value="">Escolher</option>
-      <option>Diário</option>
-      <option>Semanal</option>
-      <option>Mensal</option>
-    </select>
-  </div>
-
-  <div class="msg">
-    Pacote escolhido:
-    <input id="pacote" placeholder="Ex: 50MT ➜ 550MB">
-  </div>
-
-  <div class="msg">
-    Número que receberá:
-    <input id="numeroCliente" placeholder="84xxxxxxx / 85xxxxxxx">
-  </div>
-
-  <button class="green" onclick="irPagamento()">CONTINUAR</button>
-  <button class="gray" onclick="abrirSecao('inicio')">VOLTAR</button>
-</div>
-
-<!-- Pagamento -->
-<div class="container hidden" id="pagamento">
-  <div class="msg">
-    <b>💰 FORMAS DE PAGAMENTO</b><br><br>
-    💸 <b>M-Pesa:</b> 845646041<br>
-    💸 <b>E-Mola:</b> 876353251<br><br>
-    📌 <b>Instruções:</b><br>
-    1. Envie o valor do pacote escolhido<br>
-    2. Guarde o comprovativo<br>
-    3. Envie o comprovativo + número que vai receber os megas<br><br>
-    ⚠️ Após o pagamento, envie o comprovativo para ativação rápida.
-  </div>
-
-  <button class="green" onclick="mostrarConfirmacao()">JÁ PAGUEI</button>
-  <button class="gray" onclick="abrirSecao('megas')">VOLTAR</button>
-</div>
-
-<!-- Confirmação -->
-<div class="container hidden" id="confirmacao">
-  <div class="msg">
-    Cole o comprovativo abaixo.<br>
-    <b>Deve conter a palavra "transferiste"</b>
-  </div>
-  <textarea id="comprovativo" rows="4"></textarea>
-  <button class="green" onclick="finalizar()">CONFIRMAR</button>
-  <button class="gray" onclick="abrirSecao('pagamento')">VOLTAR</button>
-</div>
-
-<!-- Resumo Final -->
-<div class="container hidden" id="resumo">
-  <div class="msg">
-    <b>✅ CONFIRMAÇÃO FINAL</b><br><br>
-    Tipo: <span id="rTipo"></span><br>
-    Pacote: <span id="rPacote"></span><br>
-    Número destino: <span id="rNumero"></span><br>
-    Pagamento para: 845646041 (M-Pesa) / 876353251 (E-Mola)
-  </div>
-  <button class="green" id="btnWhats">ENVIAR PARA WHATSAPP</button>
-  <button class="groupbtn" id="btnGrupo">ENTRAR NO GRUPO</button>
 </div>
 
 <script>
-const whatsappNumber = "258847154707";
-const linkCursoRapido = "https://wa.me/258847154707";
-const linkGrupo = "https://chat.whatsapp.com/IH8WfWvilFuBSMBNV7Jq7mA";
+    let confirmationCount = 0;
 
-// Abrir seções
-function abrirSecao(secao){
-  document.getElementById('inicio').classList.add('hidden');
-  document.getElementById('aulas').classList.add('hidden');
-  document.getElementById('megas').classList.add('hidden');
-  document.getElementById('pagamento').classList.add('hidden');
-  document.getElementById('confirmacao').classList.add('hidden');
-  document.getElementById('resumo').classList.add('hidden');
-  document.getElementById(secao).classList.remove('hidden');
-}
+    function nextStep(step) {
+        document.getElementById('step1').classList.add('hidden');
+        document.getElementById('step2').classList.add('hidden');
+        document.getElementById('step3').classList.add('hidden');
+        document.getElementById('step4').classList.add('hidden');
+        
+        document.getElementById('step' + step).classList.remove('hidden');
+    }
 
-// Controle de aulas
-function abrirAula(index){
-  for(let i=0;i<5;i++){ document.getElementById('video'+i).style.display='none'; }
-  document.getElementById('video'+index).style.display='block';
-  localStorage.setItem('ultimaAula', Date.now());
-}
+    function handleConfirmation() {
+        const input = document.getElementById('confirmInput');
+        const msg = document.getElementById('statusMsg');
+        const val = input.value.trim().toUpperCase();
 
-// Megas - pagamento
-function irPagamento(){
-  const tipo = document.getElementById('tipo').value;
-  const pacote = document.getElementById('pacote').value;
-  const numeroCliente = document.getElementById('numeroCliente').value;
-  if(!tipo || !pacote || numeroCliente.length < 9){
-    alert("Preencha todos os campos corretamente");
-    return;
-  }
-  abrirSecao('pagamento');
-}
+        if (val === "CONFIRMADO") {
+            confirmationCount++;
+            input.value = ""; // limpa o campo para a próxima
 
-// Confirmação
-function mostrarConfirmacao(){ abrirSecao('confirmacao'); }
-function finalizar(){
-  const comprovativo = document.getElementById('comprovativo').value;
-  if(!comprovativo.toLowerCase().includes("transferiste")){
-    alert("Comprovativo inválido");
-    return;
-  }
-  document.getElementById('rTipo').innerText = document.getElementById('tipo').value;
-  document.getElementById('rPacote').innerText = document.getElementById('pacote').value;
-  document.getElementById('rNumero').innerText = document.getElementById('numeroCliente').value;
-
-  let mensagem = `✅ PAGAMENTO CONFIRMADO\nTipo: ${document.getElementById('tipo').value}\nPacote: ${document.getElementById('pacote').value}\nNúmero: ${document.getElementById('numeroCliente').value}\nPagamento para: 845646041 / 876353251\n\n${comprovativo}`;
-
-  document.getElementById('btnWhats').onclick = ()=>{ window.open("https://wa.me/"+whatsappNumber+"?text="+encodeURIComponent(mensagem),"_blank"); };
-  document.getElementById('btnGrupo').onclick = ()=>{
-    window.open("https://wa.me/"+whatsappNumber+"?text="+encodeURIComponent(mensagem),"_blank");
-    setTimeout(()=>{ window.open(linkGrupo,"_blank"); },2000);
-  };
-  abrirSecao('resumo');
-}
-
-// Botões aulas
-function abrirWhatsApp(){ window.open("https://wa.me/"+whatsappNumber,"_blank"); }
-function cursoRapido(){ window.open(linkCursoRapido,"_blank"); }
+            if (confirmationCount < 4) {
+                msg.innerText = `Confirmado válido ✔️ (${confirmationCount}/4)`;
+                msg.style.color = "#28a745";
+            } else {
+                msg.innerText = "Acesso Autorizado! Entrando...";
+                setTimeout(() => {
+                    nextStep(4);
+                }, 1500);
+            }
+        } else {
+            msg.innerText = "Palavra incorreta. Digite CONFIRMADO";
+            msg.style.color = "#e60000";
+        }
+    }
 </script>
 
 </body>
-    </html>
+</html>
