@@ -1,0 +1,12 @@
+{
+  "name": "Meu Despertador",
+  "short_name": "Despertador",
+  "description": "Relógio e despertador simples que funciona offline.",
+  "lang": "pt-MZ",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101827",
+  "theme_color": "#101827",
+  "icons": []
+}
