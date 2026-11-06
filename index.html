@@ -51,7 +51,7 @@
       let alarms = loadAlarms();
       let audioContext;
       let toneTimer;
-      const fired = new Set();
+      let firedKeys = new Set();
 
       function loadAlarms() {
         try {
@@ -81,7 +81,7 @@
           info.append(time, label);
           const controls = document.createElement('div'); controls.className = 'alarm-actions';
           const toggle = document.createElement('input'); toggle.type = 'checkbox'; toggle.className = 'switch'; toggle.checked = alarm.enabled !== false; toggle.setAttribute('aria-label', `Ativar alarme ${alarm.time}`);
-          toggle.addEventListener('change', () => { alarm.enabled = toggle.checked; saveAlarms(); });
+          toggle.addEventListener('change', () => { alarm.enabled = toggle.checked; saveAlarms(); renderAlarms(); });
           const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'delete'; remove.textContent = 'Apagar'; remove.setAttribute('aria-label', `Apagar alarme ${alarm.time}`);
           remove.addEventListener('click', () => { alarms = alarms.filter(item => item.id !== alarm.id); saveAlarms(); renderAlarms(); });
           controls.append(toggle, remove); row.append(info, controls); list.append(row);
@@ -94,15 +94,16 @@
       }
       function checkAlarms(now) {
         const time = now.toTimeString().slice(0,5);
-        const today = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
-        alarms.slice().forEach(alarm => {
-          const key = `${alarm.id}:${today}`;
-          if (alarm.enabled !== false && alarm.time === time && !fired.has(key)) {
-            fired.add(key); ring(alarm);
+        const today = now.toDateString();
+        alarms.forEach(alarm => {
+          const key = `${alarm.id}:${today}:${time}`;
+          if (alarm.enabled !== false && alarm.time === time && !firedKeys.has(key)) {
+            firedKeys.add(key);
+            ring(alarm);
             if (!alarm.daily) alarms = alarms.filter(item => item.id !== alarm.id);
+            saveAlarms(); renderAlarms();
           }
         });
-        if (alarms.length !== loadAlarms().length || alarms.some(a => !loadAlarms().some(saved => saved.id === a.id))) { saveAlarms(); renderAlarms(); }
       }
       function playTone() {
         try {
